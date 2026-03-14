@@ -14,6 +14,7 @@
   };
 
   enterShell = ''
+      export SHELL=$(getent passwd $USER | cut -d : -f 7)
       clang++ -std=c++2c -dM -E -x c++ /dev/null | grep __cplusplus
       clang++ $CXXFLAGS main.cpp && ./a.out
   '';
