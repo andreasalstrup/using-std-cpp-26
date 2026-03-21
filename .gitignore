@@ -1,3 +1,7 @@
+build/
+a.out
+compile_commands.json
+
 # Devenv
 .devenv*
 devenv.local.nix
@@ -9,4 +13,3 @@ devenv.local.yaml
 # pre-commit
 .pre-commit-config.yaml
 
-a.out
