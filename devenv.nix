@@ -3,7 +3,6 @@ let
   llvm = pkgs.llvmPackages_22;
 in
 {
-  languages.cplusplus.enable = true;
   packages = [
     llvm.clang
     llvm.clang-tools
