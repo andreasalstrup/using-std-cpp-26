@@ -3,19 +3,20 @@
 
 static uint64_t INDEX = 0;
 
-template <typename T> class IndexPointer {
-public:
+template <typename T>
+class IndexPointer {
+ public:
   IndexPointer(T t)
       : value_{(reinterpret_cast<uint64_t>(new T(t)) << 17) | ++INDEX} {}
 
-  T *operator->() const { return reinterpret_cast<T *>(value_ >> 20 << 3); }
-  T &operator*() const { return *reinterpret_cast<T *>(value_ >> 20 << 3); }
+  T* operator->() const { return reinterpret_cast<T*>(value_ >> 20 << 3); }
+  T& operator*() const { return *reinterpret_cast<T*>(value_ >> 20 << 3); }
 
   std::size_t index() const {
     return static_cast<std::size_t>(value_ & 0xFFFFF);
   }
 
-private:
+ private:
   uint64_t value_;
 };
 
